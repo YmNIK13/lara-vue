@@ -19,6 +19,9 @@
                 font-family: 'Nunito';
             }
         </style>
+
+
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -35,6 +38,9 @@
                     @endif
                 </div>
             @endif
+
+
+                <div id="app"></div>
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
