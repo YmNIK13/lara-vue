@@ -3,29 +3,39 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
+
+    protected $model;
+
+    public function __construct(Categories $model) {
+        $this->model = $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $categories = $this->model::all();
+
+        return response()->json([
+            'categories' => $categories,
+        ], 200);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
+     *
      * @return Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -33,10 +43,10 @@ class CategoryController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
+     *
      * @return Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -44,11 +54,11 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
+     * @param  int      $id
+     *
      * @return Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -56,10 +66,11 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     *
      * @return Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }

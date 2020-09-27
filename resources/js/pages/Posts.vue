@@ -2,18 +2,30 @@
     <b-container>
         <b-row>
             <b-col>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque dolores ea harum inventore iusto, magnam molestiae nulla officiis recusandae. Aliquid
-                dolorum eius in inventore! Aliquam, aspernatur, doloribus enim iste laboriosam mollitia nobis odio, perferendis quae repellat velit veritatis voluptates! Culpa
-                dignissimos excepturi expedita magni officiis, pariatur quisquam voluptas. Maiores?
+                <b-form-select
+                    v-model="selected"
+                    :options="allCategories"
+                    value-field="slug"
+                    text-field="name"
+                />
             </b-col>
         </b-row>
     </b-container>
 </template>
 
 <script>
+    import {mapActions, mapGetters} from 'vuex'
+
     export default {
-        mounted() {
-            console.log("Example component mounted");
+        data() {
+            return {
+                selected: null,
+            }
         },
+        methods: mapActions(['ajaxGetCategory']),
+        async mounted() {
+            this.ajaxGetCategory();
+        },
+        computed: {...mapGetters(['allCategories'])},
     };
 </script>
