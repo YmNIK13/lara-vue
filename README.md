@@ -9,3 +9,13 @@
 
 
 [1. Install Vue](docs/1.install-vue.md)
+
+
+## Роутинг 
+
+Для маршрутизации всех **Vue**
+```php
+Route::get('/{vue?}', function () {
+    return view('app');
+})->where('vue', '[\/\w\.-]*');
+```

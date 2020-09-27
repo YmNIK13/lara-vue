@@ -1,13 +1,12 @@
-// require('./bootstrap');
-
-window.Vue = require('vue');
-
-Vue.config.devtools = true;
-Vue.config.performance = true;
+require('./bootstrap');
 
 import App from './App.vue';
+import router from './router'
+import store from './store'
 
 const app = new Vue({
+    router,
+    store,
     el: '#app',
     components: {
         App

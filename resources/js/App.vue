@@ -1,15 +1,16 @@
 <template>
     <div>
-        <ExampleComponent />
+        <NavBar/>
+        <router-view/>
     </div>
 </template>
 
 <script>
-    import ExampleComponent from "./components/ExampleComponent";
+    import NavBar from './components/layout/NavBar'
 
     export default {
         components: {
-            ExampleComponent,
+            NavBar
         }
     }
 </script>
